@@ -15,6 +15,8 @@
             </div>
         </div>
     {% endfor %}    
+{% else %}
+    <p>Nothing yet :( <a href="{% url 'new_post' %}">Be the first one to create a post!</a></p>
 {% endif %}
 
 {% endblock content %}
