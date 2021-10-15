@@ -4,7 +4,7 @@ from django.db.models.deletion import CASCADE
 
 
 class BlogPost(models.Model):
-    title = models.CharField(max_length=30)
+    title = models.CharField(max_length=250)
     text = models.TextField()
     date_added = models.DateTimeField(auto_now_add=True)
     owner = models.ForeignKey(User, on_delete=CASCADE)
