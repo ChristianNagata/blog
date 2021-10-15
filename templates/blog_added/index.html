@@ -1,18 +1,21 @@
 {% extends 'base.html' %}
 {% block content %}
 
-{% for post in posts %}
-    <div class="panel panel-default">
-        <div class="panel-heading">
-            <h3 class="panel-title"><a href="{% url 'read_more' post.id %}">{{ post.title }}</a></h3>
+{% if posts %}
+    {% for post in posts %}
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title"><a href="{% url 'read_more' post.id %}">{{ post.title }}</a></h3>
+            </div>
+            <div class="panel-body">
+                <p>{{ post.text }}</p>
+            </div>
+            <div class="panel-footer">
+                <p><a>{{ post.owner }}</a> - {{ post.date_added|date:'M d, Y H:i' }}</p>
+            </div>
         </div>
-        <div class="panel-body">
-            <p>{{ post.text }}</p>
-         </div>
-        <div class="panel-footer">
-            <p><a>{{ post.owner }}</a> - {{ post.date_added|date:'M d, Y H:i' }}</p>
-        </div>
-    </div>
-{% endfor %}    
+    {% endfor %}    
+{% else %}
+    <p>Nothing yet :( <a href="{% url 'new_post' %}">Be the first one to create a post!</a></p>
 
 {% endblock content %}
