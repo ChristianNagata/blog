@@ -41,7 +41,7 @@ INSTALLED_APPS = [
 
     'blog_added',
     'users',
-    'bootstrap3',
+    'bootstrap3'
 ]
 
 MIDDLEWARE = [
@@ -147,7 +147,7 @@ if os.getcwd() == '/app':
     # Cabeçalhos para permitir todos os hosts
     ALLOWED_HOSTS = ['learning-log.herokuapp.com']
 
-    DEBUG = False
+    DEBUG = True
 
     # Configuração de recursos estáticos
     BASE_DIR = os.path.dirname(os.path.abspath(__file__))
