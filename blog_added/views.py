@@ -60,7 +60,6 @@ def edit_post(request, blogpost_id):
     return render(request, 'blog_added/edit_post.html', context)
 
 
-@login_required
 def read_more(request, blogpost_id):
     post = get_object_or_404(BlogPost, id=blogpost_id)
     context = {'post': post}
