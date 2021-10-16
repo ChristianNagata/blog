@@ -41,7 +41,7 @@ INSTALLED_APPS = [
 
     'blog_added',
     'users',
-    'bootstrap3'
+    'bootstrap3',
 ]
 
 MIDDLEWARE = [
@@ -145,7 +145,9 @@ if os.getcwd() == '/app':
     SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
     # Cabeçalhos para permitir todos os hosts
-    ALLOWED_HOSTS = ['*']
+    ALLOWED_HOSTS = ['learning-log.herokuapp.com']
+
+    DEBUG = False
 
     # Configuração de recursos estáticos
     BASE_DIR = os.path.dirname(os.path.abspath(__file__))
