@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import get_object_or_404, render, redirect
 from .models import BlogPost
 from .forms import BlogPostForm
 from django.http import Http404
@@ -42,7 +42,7 @@ def edit_posts(request):
 @login_required
 def edit_post(request, blogpost_id):
     """Página que dá a opção de EDITAR um post existente"""
-    post = BlogPost.objects.get(id=blogpost_id)
+    post = get_object_or_404(BlogPost, id=blogpost_id)
 
     if post.owner != request.user:
         raise Http404
@@ -60,7 +60,8 @@ def edit_post(request, blogpost_id):
     return render(request, 'blog_added/edit_post.html', context)
 
 
+@login_required
 def read_more(request, blogpost_id):
-    post = BlogPost.objects.get(id=blogpost_id)
+    post = get_object_or_404(BlogPost, id=blogpost_id)
     context = {'post': post}
     return render(request, 'blog_added/read_more.html', context)
